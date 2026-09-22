@@ -1323,12 +1323,13 @@ h2.section-header,
 }
 
 /* Section formulaire : formulaire à gauche, coordonnées à droite (60/40) */
-#visite {
+/* Ancres du menu (one page) : le header collant ne masque pas le titre */
+main section[id] {
   scroll-margin-top: 72px;
 }
 
 @media (min-width: 768px) {
-  #visite {
+  main section[id] {
     scroll-margin-top: 80px;
   }
 }
@@ -1442,6 +1443,110 @@ h2.section-header,
 .merci-dialog-close:focus-visible {
   outline: 3px solid var(--noir);
   outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Articles du blog et pages de texte
+   -------------------------------------------------------------------------- */
+.article-contenu {
+  max-width: 760px;
+}
+
+.article-contenu h1 {
+  font-size: 38px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .article-contenu h1 {
+    font-size: 52px;
+  }
+}
+
+.article-contenu h2 {
+  font-size: 28px;
+  margin: 48px 0 16px;
+}
+
+@media (min-width: 768px) {
+  .article-contenu h2 {
+    font-size: 34px;
+  }
+}
+
+.article-contenu h3 {
+  margin: 32px 0 12px;
+}
+
+.article-contenu h4 {
+  font-family: var(--font-texte);
+  font-size: 17px;
+  font-weight: 600;
+  margin: 24px 0 8px;
+}
+
+.article-contenu p,
+.article-contenu li {
+  line-height: 1.6;
+}
+
+.article-contenu ul,
+.article-contenu ol {
+  margin: 0 0 1rem 1.25em;
+  max-width: 65ch;
+}
+
+.article-contenu li {
+  margin-bottom: 8px;
+}
+
+.article-contenu a:not(.link-secondary) {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.article-regles li {
+  font-weight: 600;
+}
+
+.article-retour {
+  margin-bottom: 16px;
+}
+
+/* Liste des articles */
+.blog-liste {
+  list-style: none;
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .blog-liste {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.blog-carte {
+  border-top: 1px solid var(--noir);
+  padding-top: 20px;
+}
+
+.blog-carte h2 {
+  font-size: 26px;
+  margin-bottom: 12px;
+  text-transform: none;
+}
+
+.blog-carte h2 a {
+  text-decoration: none;
+}
+
+.blog-carte h2 a:hover {
+  text-decoration: underline;
+}
+
+.blog-carte p {
+  color: var(--gris-texte);
 }
 
 /* --------------------------------------------------------------------------

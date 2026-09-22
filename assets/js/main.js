@@ -545,14 +545,14 @@
 
   /* ==========================================================================
      Boutons « Réserver ma visite » : descente jusqu'au formulaire s'il est
-     sur la page (sinon, lien normal vers /contact-espace-coworking)
+     sur la page (sinon, lien normal vers /#visite, le formulaire de l'accueil)
      ========================================================================== */
   function initCtaToForm() {
     const target = document.getElementById("visite");
     const form = document.getElementById("form-visite");
     if (!target || !form) return;
 
-    const ctaLinks = document.querySelectorAll('a[href="/contact-espace-coworking"], a[href="#visite"]');
+    const ctaLinks = document.querySelectorAll('a[href="/#visite"], a[href="#visite"], a[href="/contact-espace-coworking"]');
     ctaLinks.forEach(function (link) {
       link.addEventListener("click", function (e) {
         e.preventDefault();
