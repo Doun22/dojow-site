@@ -1162,6 +1162,26 @@ a {
   color: var(--blanc);
 }
 
+/* En-tête « Parti pris » : texte + illustration de marque */
+.parti-pris-header {
+  display: grid;
+  gap: 32px;
+}
+
+.parti-pris-img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: var(--radius);
+}
+
+@media (min-width: 1024px) {
+  .parti-pris-header {
+    grid-template-columns: 1fr 320px;
+    gap: 64px;
+    align-items: center;
+  }
+}
+
 /* Blocs H3 + texte, filet en tête (grille suisse) */
 .bloc-filet {
   border-top: 1px solid var(--noir);
