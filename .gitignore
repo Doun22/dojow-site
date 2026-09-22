@@ -1,0 +1,14 @@
+# Spécifications et consignes privées des agents (jamais commitées)
+SPEC.md
+CLAUDE.md
+AGENTS.md
+
+# Fichiers système et caches
+.DS_Store
+Thumbs.db
+*.log
+__pycache__/
+
+# Environnements et dépendances
+.venv/
+node_modules/
