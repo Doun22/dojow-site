@@ -448,6 +448,17 @@
             <p>23 rue Claudot, 54000 Nancy</p>
             <p><a href="https://www.google.com/maps/search/?api=1&amp;query=23+rue+Claudot+54000+Nancy" class="link-secondary" target="_blank" rel="noopener">Itinéraire Google Maps</a></p>
             <p class="text-muted">Visites sur rendez-vous. Accès 24h/24 pour les membres.</p>
+
+            <!-- Carte Google Maps chargée uniquement au clic : aucun cookie Google avant l'action du visiteur (demande de Stéphane, écart à SPEC 8.2) -->
+            <!-- À VALIDER : texte de la mention cookies sous le bouton -->
+            <div class="carte" data-map-src="https://www.google.com/maps?q=23+rue+Claudot,+54000+Nancy&amp;output=embed">
+              <div class="carte-apercu">
+                <svg class="carte-icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+                <p class="carte-adresse">23 rue Claudot, 54000 Nancy</p>
+                <a href="https://www.google.com/maps/search/?api=1&amp;query=23+rue+Claudot+54000+Nancy" class="link-secondary" data-action="load-map" target="_blank" rel="noopener">Afficher la carte</a>
+                <p class="carte-mention">La carte est fournie par Google, qui dépose des cookies à l'affichage.</p>
+              </div>
+            </div>
           </aside>
         </div>
       </div>
