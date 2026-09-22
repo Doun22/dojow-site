@@ -1366,49 +1366,13 @@ h2.section-header,
   color: var(--noir);
 }
 
-/* Carte Google Maps chargée au clic */
+/* Carte Google Maps */
 .carte {
   margin-top: 24px;
   aspect-ratio: 4 / 3;
   border: 1px solid var(--noir);
   border-radius: var(--radius);
-  background-color: var(--blanc);
   overflow: hidden;
-}
-
-.carte-apercu {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  padding: 24px;
-  text-align: center;
-  background-image:
-    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-
-.carte-icone {
-  width: 36px;
-  height: 36px;
-  fill: none;
-  stroke: var(--noir);
-  stroke-width: 2;
-  margin-bottom: 8px;
-}
-
-.carte-adresse {
-  font-weight: 600;
-  margin-bottom: 0;
-}
-
-.carte-mention {
-  font-size: 13px;
-  color: var(--gris-texte);
-  max-width: 32ch;
 }
 
 .carte iframe {

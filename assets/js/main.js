@@ -564,27 +564,6 @@
   }
 
   /* ==========================================================================
-     Carte Google Maps : chargée seulement au clic (aucun appel à Google avant)
-     Sans JavaScript, le lien ouvre Google Maps dans un nouvel onglet.
-     ========================================================================== */
-  function initMapOnClick() {
-    document.querySelectorAll(".carte[data-map-src]").forEach(function (carte) {
-      const trigger = carte.querySelector('[data-action="load-map"]');
-      if (!trigger) return;
-      trigger.addEventListener("click", function (e) {
-        e.preventDefault();
-        const iframe = document.createElement("iframe");
-        iframe.src = carte.dataset.mapSrc;
-        iframe.title = "Carte : Dojow, 23 rue Claudot, 54000 Nancy";
-        iframe.referrerPolicy = "no-referrer-when-downgrade";
-        iframe.allowFullscreen = true;
-        carte.replaceChildren(iframe);
-        iframe.focus();
-      });
-    });
-  }
-
-  /* ==========================================================================
      Année courante dynamique dans le footer
      ========================================================================== */
   function initDynamicYear() {
@@ -608,7 +587,6 @@
     initCallTracking();
     initCtaToForm();
     initMerciDialog();
-    initMapOnClick();
     initDynamicYear();
   });
 })();
