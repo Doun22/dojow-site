@@ -295,8 +295,48 @@
         submitBtn.textContent = "Envoi en cours...";
       }
 
-      // La soumission se poursuit normalement vers l'API Web3Forms
-      return true;
+      // Sans fetch (très vieux navigateur) : POST classique, redirection vers /merci
+      if (!window.fetch || !window.FormData) return true;
+
+      // Envoi en arrière-plan, puis fenêtre de remerciement sur la page
+      e.preventDefault();
+      const status = document.getElementById("form-status");
+      if (status) {
+        status.textContent = "";
+        status.classList.remove("is-visible");
+      }
+      const prenom = prenomInput ? prenomInput.value.trim() : "";
+
+      fetch(form.action, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(form)
+      })
+        .then(function (response) {
+          return response.json().then(function (data) {
+            if (!response.ok || !data.success) throw new Error(data.message || "Échec de l'envoi");
+          });
+        })
+        .then(function () {
+          Storage.removeSession("dojow_prenom");
+          form.reset();
+          initUtmAndGclid();
+          trackConversion();
+          openMerciDialog(prenom);
+        })
+        .catch(function () {
+          if (status) {
+            status.textContent = "L'envoi n'a pas fonctionné. Réessayez, ou appelez le 06 32 71 14 24.";
+            status.classList.add("is-visible");
+          }
+        })
+        .then(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = submitBtn.dataset.originalText || "Réserver ma visite";
+          }
+        });
+      return false;
     });
 
     // Retour arrière depuis /merci (cache du navigateur) : réactiver le bouton
@@ -323,6 +363,35 @@
         clearError(emailInput, document.getElementById("err-email"));
       });
     }
+  }
+
+  /* ==========================================================================
+     Fenêtre de remerciement après envoi du formulaire (texte de SPEC 8.8)
+     ========================================================================== */
+  function openMerciDialog(prenom) {
+    const dialog = document.getElementById("merci-dialog");
+    if (!dialog || typeof dialog.showModal !== "function") {
+      window.location.href = "/merci";
+      return;
+    }
+    const title = document.getElementById("merci-dialog-titre");
+    // Sécurité XSS : textContent uniquement, jamais innerHTML
+    if (title) title.textContent = prenom ? `C'est noté, ${prenom} !` : "C'est noté !";
+    dialog.showModal();
+  }
+
+  function initMerciDialog() {
+    const dialog = document.getElementById("merci-dialog");
+    if (!dialog) return;
+    dialog.querySelectorAll('[data-action="close-merci"]').forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        dialog.close();
+      });
+    });
+    // Clic sur le fond sombre : fermeture
+    dialog.addEventListener("click", function (e) {
+      if (e.target === dialog) dialog.close();
+    });
   }
 
   /* ==========================================================================
@@ -377,11 +446,18 @@
 
     // Si on est sur /merci, déclenchement de la conversion principale
     if (window.location.pathname.includes("merci") || document.getElementById("merci-titre")) {
-      // [À COMPLÉTER : libellé de conversion, ex. AW-XXXXXXXXX/LIBELLE]
-      gtag("event", "conversion", {
-        send_to: `${GOOGLE_ADS_ID}/CONVERSION_LABEL`
-      });
+      trackConversion();
     }
+  }
+
+  // Conversion principale : page /merci, ou fenêtre de remerciement après envoi
+  function trackConversion() {
+    const stored = Storage.getLocal(COOKIE_CONSENT_KEY);
+    if (!stored || stored.choice !== "granted" || typeof window.gtag !== "function") return;
+    // [À COMPLÉTER : libellé de conversion, ex. AW-XXXXXXXXX/LIBELLE]
+    window.gtag("event", "conversion", {
+      send_to: `${GOOGLE_ADS_ID}/CONVERSION_LABEL`
+    });
   }
 
   function initCookieBanner() {
@@ -510,6 +586,7 @@
     initCookieBanner();
     initCallTracking();
     initCtaToForm();
+    initMerciDialog();
     initDynamicYear();
   });
 })();

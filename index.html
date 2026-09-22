@@ -350,8 +350,8 @@
           <div>
             <form id="form-visite" class="form-visite" action="https://api.web3forms.com/submit" method="POST" novalidate>
               <!-- Clé et paramètres cachés (SPEC 9.1) -->
-              <!-- À COMPLÉTER : clé Web3Forms créée avec sci.sdam@gmail.com -->
-              <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY">
+              <!-- Clé Web3Forms liée à sci.sdam@gmail.com (fournie par Stéphane le 22/09/2026) -->
+              <input type="hidden" name="access_key" value="a0d111a6-226f-4faf-b171-7aaadbd5601b">
               <input type="hidden" name="subject" value="Nouvelle demande de visite Dojow">
               <input type="hidden" name="from_name" value="Site Dojow">
               <input type="hidden" name="redirect" value="https://www.dojow.fr/merci">
@@ -425,8 +425,16 @@
                 <span id="err-preference" class="form-error" role="alert"></span>
               </fieldset>
 
+              <!-- 6. Message facultatif -->
+              <div class="form-group">
+                <label for="message" class="form-label">Un message ? (facultatif)</label>
+                <textarea id="message" name="message" class="form-textarea form-textarea--petit" rows="2"></textarea>
+              </div>
+
               <!-- Bouton unique d'action -->
               <button type="submit" class="btn btn-primary">Réserver ma visite</button>
+              <!-- À VALIDER : message affiché si l'envoi échoue (texte non prévu par SPEC) -->
+              <p id="form-status" class="form-error" role="alert"></p>
 
               <p class="form-reassurance">
                 Stéphane vous rappelle rapidement pour fixer le créneau. Vos données servent uniquement à organiser la visite. <a href="/mentions-legales-politique-de-confidentialite">En savoir plus</a>.
@@ -446,6 +454,16 @@
     </section>
 
   </main>
+
+  <!-- Fenêtre de remerciement après envoi du formulaire (texte de SPEC 8.8) -->
+  <dialog id="merci-dialog" class="merci-dialog" aria-labelledby="merci-dialog-titre">
+    <button type="button" class="merci-dialog-close" data-action="close-merci" aria-label="Fermer">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <h2 id="merci-dialog-titre">C'est noté !</h2>
+    <p>Stéphane vous rappelle rapidement au numéro indiqué pour fixer votre visite. En attendant, notez l'adresse : 23 rue Claudot, 54000 Nancy.</p>
+    <p><a href="https://www.google.com/maps/search/?api=1&amp;query=23+rue+Claudot+54000+Nancy" class="link-secondary" target="_blank" rel="noopener">Itinéraire Google Maps</a></p>
+  </dialog>
 
   <!-- =========================================================================
        5.5 Barre d'action collante sur mobile (< 768 px)

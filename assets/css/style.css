@@ -1366,6 +1366,68 @@ h2.section-header,
   color: var(--noir);
 }
 
+/* Petite zone de message */
+.form-textarea--petit {
+  min-height: 80px;
+}
+
+/* Fenêtre de remerciement */
+.merci-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: calc(100% - 32px);
+  max-width: 520px;
+  padding: 48px 32px 32px;
+  border: 2px solid var(--noir);
+  border-radius: var(--radius);
+  background-color: var(--blanc);
+  color: var(--noir);
+}
+
+.merci-dialog::backdrop {
+  background-color: rgba(17, 17, 17, 0.6);
+}
+
+.merci-dialog h2 {
+  margin-bottom: 16px;
+  padding-right: 32px;
+}
+
+.merci-dialog p {
+  margin-bottom: 12px;
+}
+
+.merci-dialog-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius);
+  color: var(--noir);
+  cursor: pointer;
+}
+
+.merci-dialog-close svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.merci-dialog-close:focus-visible {
+  outline: 3px solid var(--noir);
+  outline-offset: 2px;
+}
+
 /* --------------------------------------------------------------------------
    10. Bandeau Cookies
    -------------------------------------------------------------------------- */
