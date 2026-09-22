@@ -1070,15 +1070,16 @@ a {
   position: relative;
   display: flex;
   align-items: flex-end;
-  min-height: 600px;
+  min-height: 520px;
   background-color: var(--noir);
   color: var(--blanc);
   overflow: hidden;
 }
 
 @media (min-width: 1024px) {
+  /* Hauteur de l'écran moins le header, pour que tout le texte soit visible */
   .hero-full {
-    min-height: min(88vh, 820px);
+    min-height: min(calc(100vh - 80px), 720px);
   }
 }
 
@@ -1102,18 +1103,18 @@ a {
 .hero-full-content {
   position: relative;
   z-index: 2;
-  padding-block: 64px;
+  padding-block: 40px;
 }
 
 @media (min-width: 768px) {
   .hero-full-content {
-    padding-block: 96px;
+    padding-block: 56px;
   }
 }
 
 .hero-full h1 {
   color: var(--blanc);
-  max-width: 18ch;
+  max-width: 24ch;
 }
 
 .hero-full-sub {
