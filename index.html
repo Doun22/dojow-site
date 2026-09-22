@@ -300,6 +300,22 @@
       </div>
     </section>
 
+    <!-- Bloc d'action final (déplacé sous le témoignage à la demande de Stéphane) -->
+    <section class="section" aria-labelledby="titre-cta-final">
+      <div class="container">
+        <div class="bloc-cta-final">
+          <div class="bloc-cta-content">
+            <h2 id="titre-cta-final">Venez voir si Dojow est fait pour vous.</h2>
+            <p>Visite gratuite, sans engagement. Une vingtaine de minutes sur place, au 23 rue Claudot à Nancy.</p>
+          </div>
+          <div class="bloc-cta-actions">
+            <a href="/contact-espace-coworking" class="btn btn-primary">Réserver ma visite</a>
+            <a href="tel:+33632711424" class="link-secondary">Ou appelez le 06 32 71 14 24</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Section 9 · FAQ courte -->
     <section class="section" aria-labelledby="titre-faq">
       <div class="container">
@@ -326,18 +342,105 @@
       </div>
     </section>
 
-    <!-- Section 10 · Bloc d'action final -->
-    <section class="section" aria-labelledby="titre-cta-final">
+    <!-- Formulaire de demande de visite (ajouté sur l'accueil à la demande de Stéphane, écart à SPEC 8.1) -->
+    <section id="visite" class="section section-gris" aria-labelledby="titre-visite">
       <div class="container">
-        <div class="bloc-cta-final">
-          <div class="bloc-cta-content">
-            <h2 id="titre-cta-final">Venez voir si Dojow est fait pour vous.</h2>
-            <p>Visite gratuite, sans engagement. Une vingtaine de minutes sur place, au 23 rue Claudot à Nancy.</p>
+        <h2 id="titre-visite" class="section-header">Réservez votre visite du coworking Dojow.</h2>
+        <div class="visite-grid">
+          <div>
+            <form id="form-visite" class="form-visite" action="https://api.web3forms.com/submit" method="POST" novalidate>
+              <!-- Clé et paramètres cachés (SPEC 9.1) -->
+              <!-- À COMPLÉTER : clé Web3Forms créée avec sci.sdam@gmail.com -->
+              <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY">
+              <input type="hidden" name="subject" value="Nouvelle demande de visite Dojow">
+              <input type="hidden" name="from_name" value="Site Dojow">
+              <input type="hidden" name="redirect" value="https://www.dojow.fr/merci">
+              <input type="hidden" name="origine" value="site">
+              <input type="hidden" name="utm_source">
+              <input type="hidden" name="utm_medium">
+              <input type="hidden" name="utm_campaign">
+              <input type="hidden" name="utm_term">
+              <input type="hidden" name="gclid">
+              <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+              <!-- 1. Prénom -->
+              <div class="form-group">
+                <label for="prenom" class="form-label">Prénom</label>
+                <input type="text" id="prenom" name="prenom" class="form-input" autocomplete="given-name" required aria-describedby="err-prenom">
+                <span id="err-prenom" class="form-error" role="alert"></span>
+              </div>
+
+              <!-- 2. Téléphone -->
+              <div class="form-group">
+                <label for="telephone" class="form-label">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" class="form-input" autocomplete="tel" required aria-describedby="tel-help err-telephone">
+                <span id="tel-help" class="form-help">C'est par là que Stéphane vous rappelle.</span>
+                <span id="err-telephone" class="form-error" role="alert"></span>
+              </div>
+
+              <!-- 3. Email -->
+              <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" class="form-input" autocomplete="email" required aria-describedby="err-email">
+                <span id="err-email" class="form-error" role="alert"></span>
+              </div>
+
+              <!-- 4. Profil -->
+              <fieldset class="radio-fieldset" aria-describedby="err-profil">
+                <legend class="radio-legend">Vous êtes</legend>
+                <div class="radio-options">
+                  <div class="radio-pill">
+                    <input type="radio" id="profil-freelance" name="profil" value="freelance">
+                    <label for="profil-freelance">Freelance / indépendant</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="profil-equipe" name="profil" value="equipe">
+                    <label for="profil-equipe">Une équipe de 2 ou 3</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="profil-autre" name="profil" value="autre">
+                    <label for="profil-autre">Autre</label>
+                  </div>
+                </div>
+                <span id="err-profil" class="form-error" role="alert"></span>
+              </fieldset>
+
+              <!-- 5. Préférence de visite -->
+              <fieldset class="radio-fieldset" aria-describedby="err-preference">
+                <legend class="radio-legend">Quand préférez-vous visiter ?</legend>
+                <div class="radio-options">
+                  <div class="radio-pill">
+                    <input type="radio" id="visite-semaine" name="preference_visite" value="cette-semaine">
+                    <label for="visite-semaine">Cette semaine</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="visite-prochaine" name="preference_visite" value="semaine-prochaine">
+                    <label for="visite-prochaine">La semaine prochaine</label>
+                  </div>
+                  <div class="radio-pill">
+                    <input type="radio" id="visite-nsp" name="preference_visite" value="ne-sait-pas">
+                    <label for="visite-nsp">Je ne sais pas encore</label>
+                  </div>
+                </div>
+                <span id="err-preference" class="form-error" role="alert"></span>
+              </fieldset>
+
+              <!-- Bouton unique d'action -->
+              <button type="submit" class="btn btn-primary">Réserver ma visite</button>
+
+              <p class="form-reassurance">
+                Stéphane vous rappelle rapidement pour fixer le créneau. Vos données servent uniquement à organiser la visite. <a href="/mentions-legales-politique-de-confidentialite">En savoir plus</a>.
+              </p>
+            </form>
           </div>
-          <div class="bloc-cta-actions">
-            <a href="/contact-espace-coworking" class="btn btn-primary">Réserver ma visite</a>
-            <a href="tel:+33632711424" class="link-secondary">Ou appelez le 06 32 71 14 24</a>
-          </div>
+          <aside class="visite-contact" aria-labelledby="titre-appeler">
+            <h3 id="titre-appeler">Vous préférez appeler ?</h3>
+            <p><a href="tel:+33632711424" class="visite-tel">06 32 71 14 24</a></p>
+            <p><a href="mailto:sci.sdam@gmail.com">sci.sdam@gmail.com</a></p>
+            <p>23 rue Claudot, 54000 Nancy</p>
+            <p><a href="https://www.google.com/maps/search/?api=1&amp;query=23+rue+Claudot+54000+Nancy" class="link-secondary" target="_blank" rel="noopener">Itinéraire Google Maps</a></p>
+            <p class="text-muted">Visites sur rendez-vous. Accès 24h/24 pour les membres.</p>
+          </aside>
         </div>
       </div>
     </section>

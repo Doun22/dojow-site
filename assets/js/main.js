@@ -468,6 +468,26 @@
   }
 
   /* ==========================================================================
+     Boutons « Réserver ma visite » : descente jusqu'au formulaire s'il est
+     sur la page (sinon, lien normal vers /contact-espace-coworking)
+     ========================================================================== */
+  function initCtaToForm() {
+    const target = document.getElementById("visite");
+    const form = document.getElementById("form-visite");
+    if (!target || !form) return;
+
+    const ctaLinks = document.querySelectorAll('a[href="/contact-espace-coworking"], a[href="#visite"]');
+    ctaLinks.forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        target.scrollIntoView({ block: "start" });
+        const firstField = form.querySelector('input:not([type="hidden"]):not([name="botcheck"])');
+        if (firstField) firstField.focus({ preventScroll: true });
+      });
+    });
+  }
+
+  /* ==========================================================================
      Année courante dynamique dans le footer
      ========================================================================== */
   function initDynamicYear() {
@@ -489,6 +509,7 @@
     initMerciPage();
     initCookieBanner();
     initCallTracking();
+    initCtaToForm();
     initDynamicYear();
   });
 })();

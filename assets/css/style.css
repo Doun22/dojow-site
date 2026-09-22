@@ -295,7 +295,7 @@ img {
 /* --------------------------------------------------------------------------
    Textures de fond (Tech & Discipline)
    -------------------------------------------------------------------------- */
-/* Texture photo fournie par Stéphane, à 20 % d'opacité, derrière le contenu */
+/* Texture photo fournie par Stéphane, à 10 % d'opacité, derrière le contenu */
 .texture-dots {
   position: relative;
   isolation: isolate;
@@ -309,7 +309,7 @@ img {
   z-index: -1;
   background: url("../img/patterns/texture.webp") repeat;
   background-size: 512px 512px;
-  opacity: 0.2;
+  opacity: 0.1;
   pointer-events: none;
 }
 
@@ -1319,6 +1319,50 @@ h2.section-header,
 .faq-list,
 .temoignage-card {
   max-width: 800px;
+}
+
+/* Section formulaire : formulaire à gauche, coordonnées à droite (60/40) */
+#visite {
+  scroll-margin-top: 72px;
+}
+
+@media (min-width: 768px) {
+  #visite {
+    scroll-margin-top: 80px;
+  }
+}
+
+.visite-grid {
+  display: grid;
+  gap: 48px;
+}
+
+@media (min-width: 1024px) {
+  .visite-grid {
+    grid-template-columns: 3fr 2fr;
+    gap: 64px;
+  }
+}
+
+.visite-contact {
+  border-top: 1px solid var(--noir);
+  padding-top: 20px;
+}
+
+.visite-contact h3 {
+  margin-bottom: 16px;
+}
+
+.visite-contact p {
+  margin-bottom: 8px;
+}
+
+.visite-tel {
+  font-family: var(--font-titre);
+  font-size: 40px;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--noir);
 }
 
 /* --------------------------------------------------------------------------
