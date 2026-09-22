@@ -295,10 +295,22 @@ img {
 /* --------------------------------------------------------------------------
    Textures de fond (Tech & Discipline)
    -------------------------------------------------------------------------- */
+/* Texture photo fournie par Stéphane, à 20 % d'opacité, derrière le contenu */
 .texture-dots {
+  position: relative;
+  isolation: isolate;
   background-color: var(--gris-fond);
-  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1.5px, transparent 1.5px);
-  background-size: 24px 24px;
+}
+
+.texture-dots::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("../img/patterns/texture.webp") repeat;
+  background-size: 512px 512px;
+  opacity: 0.2;
+  pointer-events: none;
 }
 
 .texture-grid {
@@ -307,11 +319,6 @@ img {
     linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
   background-size: 32px 32px;
-}
-
-.texture-hero {
-  background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1.5px, transparent 1.5px);
-  background-size: 28px 28px;
 }
 
 .btn:focus-visible,
@@ -651,8 +658,8 @@ a {
 }
 
 .footer-logo {
-  height: 42px;
-  width: auto;
+  width: 140px;
+  height: auto;
   margin-bottom: 12px;
   display: block;
 }
@@ -1162,24 +1169,22 @@ a {
   color: var(--blanc);
 }
 
-/* En-tête « Parti pris » : texte + illustration de marque */
-.parti-pris-header {
-  display: grid;
-  gap: 32px;
+/* « Parti pris » : wordmark brodé en fond étendu, voile noir pour la lisibilité */
+.parti-pris-fond {
+  position: relative;
+  isolation: isolate;
+  background-image: url("../img/brand/dojow-brode.webp");
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
 }
 
-.parti-pris-img {
-  width: 100%;
-  max-width: 320px;
-  border-radius: var(--radius);
-}
-
-@media (min-width: 1024px) {
-  .parti-pris-header {
-    grid-template-columns: 1fr 320px;
-    gap: 64px;
-    align-items: center;
-  }
+.parti-pris-fond::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: rgba(17, 17, 17, 0.72);
 }
 
 /* Blocs H3 + texte, filet en tête (grille suisse) */
