@@ -117,14 +117,14 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  font-size: 38px;
+  font-size: 42px;
   line-height: 1.05;
   text-transform: uppercase;
   letter-spacing: 0.01em;
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 32px;
   line-height: 1.15;
   text-transform: uppercase;
   letter-spacing: 0.01em;
@@ -139,13 +139,25 @@ h3 {
 
 @media (min-width: 768px) {
   h1 {
-    font-size: 56px;
+    font-size: 64px;
   }
   h2 {
-    font-size: 40px;
+    font-size: 44px;
   }
   h3 {
     font-size: 24px;
+  }
+}
+
+/* Titres XXL sur grand écran (inspiration Darwin, écart à SPEC 5.2 validé par Stéphane) */
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 80px;
+    line-height: 1;
+  }
+  h2 {
+    font-size: 52px;
+    line-height: 1.05;
   }
 }
 
@@ -792,6 +804,7 @@ a {
 }
 
 .barre-preuves-grid {
+  list-style: none;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
@@ -1039,6 +1052,248 @@ a {
   color: var(--gris-texte);
   text-align: center;
   margin-top: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   Mises en page de l'accueil (inspiration Darwin)
+   -------------------------------------------------------------------------- */
+
+/* Hero photo pleine largeur */
+.hero-full {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 600px;
+  background-color: var(--noir);
+  color: var(--blanc);
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .hero-full {
+    min-height: min(88vh, 820px);
+  }
+}
+
+.hero-full-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Voile uni pour garder le texte lisible sur n'importe quelle photo */
+.hero-full::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-color: rgba(17, 17, 17, 0.6);
+}
+
+.hero-full-content {
+  position: relative;
+  z-index: 2;
+  padding-block: 64px;
+}
+
+@media (min-width: 768px) {
+  .hero-full-content {
+    padding-block: 96px;
+  }
+}
+
+.hero-full h1 {
+  color: var(--blanc);
+  max-width: 18ch;
+}
+
+.hero-full-sub {
+  font-size: 18px;
+  max-width: 60ch;
+  margin: 24px 0 32px;
+}
+
+@media (min-width: 768px) {
+  .hero-full-sub {
+    font-size: 20px;
+  }
+}
+
+.hero-full-reassurance {
+  margin-top: 16px;
+  font-size: 16px;
+  color: #E6E6E6;
+}
+
+.hero-full-micro {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #E6E6E6;
+}
+
+/* Section noire */
+.section-noir {
+  background-color: var(--noir);
+  color: var(--blanc);
+  border-bottom-color: var(--noir);
+}
+
+.section-noir h2,
+.section-noir h3 {
+  color: var(--blanc);
+}
+
+.section-noir p,
+.section-noir .section-subtitle {
+  color: #CFCFCF;
+}
+
+/* Focus visible sur fond sombre */
+.hero-full a:focus-visible,
+.section-noir a:focus-visible {
+  outline-color: var(--blanc);
+}
+
+.hero-full .link-secondary,
+.section-noir .link-secondary {
+  color: var(--blanc);
+}
+
+/* Blocs H3 + texte, filet en tête (grille suisse) */
+.bloc-filet {
+  border-top: 1px solid var(--noir);
+  padding-top: 20px;
+}
+
+.bloc-filet h3 {
+  margin-bottom: 12px;
+}
+
+.section-noir .bloc-filet {
+  border-top-color: #444444;
+}
+
+.bloc-numero {
+  display: block;
+  font-family: var(--font-titre);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+h2.section-header,
+.section-header h2 {
+  max-width: 22ch;
+}
+
+/* Bloc alterné texte et photo */
+.split {
+  display: grid;
+  gap: 40px;
+}
+
+@media (min-width: 1024px) {
+  .split {
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+}
+
+.split-text h2 {
+  margin-bottom: 32px;
+}
+
+.split-media img {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+}
+
+.carte-tarif--compacte .tarif-prix {
+  font-size: 44px;
+  margin-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+  .carte-tarif--compacte .tarif-prix {
+    font-size: 56px;
+  }
+}
+
+.carte-tarif .link-secondary {
+  align-self: center;
+  margin-top: 8px;
+}
+
+/* Galerie : une grande image et deux petites */
+.galerie {
+  display: grid;
+  gap: 24px;
+}
+
+.galerie figure {
+  display: flex;
+  flex-direction: column;
+}
+
+.galerie img {
+  aspect-ratio: 4 / 3;
+}
+
+.galerie figcaption {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--gris-texte);
+}
+
+@media (min-width: 768px) {
+  .galerie {
+    grid-template-columns: 2fr 1fr;
+  }
+  .galerie-grande {
+    grid-row: 1 / 3;
+  }
+  .galerie-grande img {
+    flex: 1;
+    min-height: 0;
+    aspect-ratio: auto;
+  }
+}
+
+.section-lien {
+  margin-top: 32px;
+}
+
+/* Bandeau texte + lien */
+.bandeau h2 {
+  margin-bottom: 12px;
+}
+
+.bandeau .link-secondary {
+  margin-top: 16px;
+}
+
+@media (min-width: 768px) {
+  .bandeau {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+  }
+  .bandeau .link-secondary {
+    margin-top: 0;
+    flex-shrink: 0;
+  }
+}
+
+.faq-list,
+.temoignage-card {
+  max-width: 800px;
 }
 
 /* --------------------------------------------------------------------------
