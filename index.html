@@ -3,16 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Coworking à Nancy pour la tech et le digital | Dojow</title>
-  <meta name="description" content="Coworking à Nancy, 23 rue Claudot : 15 postes fixes, fibre, salle de réunion incluse, accès 24h/24. 82,50 € HT/mois les 3 premiers mois. Réservez votre visite.">
+  <title>Espace de coworking à Nancy | Dojow</title>
+  <meta name="description" content="Espace de coworking à Nancy, 23 rue Claudot : 15 postes fixes, fibre, salle de réunion incluse, accès 24h/24. Poste fixe à 82,50 € HT/mois les 3 premiers mois.">
   <link rel="canonical" href="https://www.dojow.fr/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Dojow">
-  <meta property="og:title" content="Coworking à Nancy pour la tech et le digital | Dojow">
-  <meta property="og:description" content="Coworking à Nancy, 23 rue Claudot : 15 postes fixes, fibre, salle de réunion incluse, accès 24h/24. 82,50 € HT/mois les 3 premiers mois. Réservez votre visite.">
+  <meta property="og:title" content="Espace de coworking à Nancy | Dojow">
+  <meta property="og:description" content="Espace de coworking à Nancy, 23 rue Claudot : 15 postes fixes, fibre, salle de réunion incluse, accès 24h/24. Poste fixe à 82,50 € HT/mois les 3 premiers mois.">
   <meta property="og:url" content="https://www.dojow.fr/">
   <meta property="og:image" content="https://www.dojow.fr/assets/img/brand/og-dojow.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Espace de coworking à Nancy | Dojow">
+  <meta name="twitter:description" content="Espace de coworking à Nancy, 23 rue Claudot : 15 postes fixes, fibre, salle de réunion incluse, accès 24h/24. Poste fixe à 82,50 € HT/mois les 3 premiers mois.">
+  <meta name="twitter:image" content="https://www.dojow.fr/assets/img/brand/og-dojow.jpg">
+  <meta name="geo.region" content="FR-GES">
+  <meta name="geo.placename" content="Nancy">
+  <!-- À COMPLÉTER : coordonnées GPS du 23 rue Claudot, pour geo.position, ICBM et le champ "geo" du JSON-LD
+  <meta name="geo.position" content="[LAT];[LON]">
+  <meta name="ICBM" content="[LAT], [LON]"> -->
   <link rel="icon" href="/assets/img/brand/favicon.png">
   <link rel="preload" href="/assets/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/style.css">
@@ -40,6 +51,16 @@
       "opens": "00:00",
       "closes": "23:59"
     },
+    "priceRange": "€",
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=23+rue+Claudot+54000+Nancy",
+    "areaServed": ["Nancy", "Grand Nancy", "Vandœuvre-lès-Nancy", "Villers-lès-Nancy", "Laxou", "Maxéville", "Malzéville", "Saint-Max", "Essey-lès-Nancy", "Tomblaine", "Jarville-la-Malgrange", "Heillecourt"],
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Fibre", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Salle de réunion incluse", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Accès 24h/24 et 7j/7 par badge", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Café à volonté", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Stationnement facile", "value": true }
+    ],
     "makesOffer": {
       "@type": "Offer",
       "name": "Poste fixe",
@@ -53,6 +74,46 @@
         "valueAddedTaxIncluded": false
       }
     }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "C'est quoi, un poste fixe ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Un poste de travail qui vous est attribué. Vous retrouvez votre place chaque jour, vous n'avez pas à la chercher."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Les prix sont HT ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, tous les prix affichés sont hors taxes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment fonctionne l'accès 24h/24 ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Vous recevez un badge à votre arrivée. Il ouvre l'espace à toute heure, tous les jours, y compris le week-end."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Et si le lieu ne me convient pas ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "C'est exactement pour ça qu'on commence par une visite. Vous ne vous engagez à rien avant d'avoir vu votre poste, testé la connexion et rencontré les gens."
+        }
+      }
+    ]
   }
   </script>
 </head>
@@ -199,7 +260,7 @@
     <section id="tarifs" class="section section-gris texture-dots" aria-labelledby="titre-offre">
       <div class="container split">
         <div class="split-text">
-          <h2 id="titre-offre">Un poste fixe. Tout est inclus, le prix est clair.</h2>
+          <h2 id="titre-offre">Tarifs du coworking à Nancy : le poste fixe Dojow</h2>
           <div class="carte-tarif carte-tarif--compacte">
             <span class="tarif-surtitre">Offre de lancement</span>
             <p class="tarif-prix">82,50 € HT / mois</p>
@@ -250,7 +311,7 @@
     <section class="section section-noir parti-pris-fond" aria-labelledby="titre-parti-pris">
       <div class="container">
         <div class="section-header">
-          <h2 id="titre-parti-pris">Tech &amp; Discipline. C'est notre parti pris.</h2>
+          <h2 id="titre-parti-pris">Notre espace de coworking à Nancy : Tech &amp; Discipline</h2>
           <p class="section-subtitle">Dojow n'est pas un salon avec du wifi. C'est un lieu de travail, taille humaine, pensé pour des gens qui ont des choses à livrer.</p>
         </div>
         <div class="grid grid-3 blocs-filet">
@@ -287,7 +348,7 @@
     <!-- Section 8 · Témoignage -->
     <section class="section" aria-labelledby="titre-temoignage">
       <div class="container">
-        <h2 id="titre-temoignage" class="section-header">Ce qu'en disent les membres</h2>
+        <h2 id="titre-temoignage" class="section-header">Avis sur le coworking Dojow à Nancy</h2>
         <figure class="temoignage-card">
           <blockquote class="temoignage-quote">« Très bel espace de coworking, mon favori sur Nancy ! Le lieu est bien équipé et propre, accès simple et proche du centre-ville, c'est parfait ! »</blockquote>
           <figcaption class="temoignage-author">Lou C., membre Dojow <!-- À COMPLÉTER : activité de Lou C. si elle accepte qu'elle soit affichée --></figcaption>
@@ -301,7 +362,7 @@
       <div class="container">
         <div class="bloc-cta-final">
           <div class="bloc-cta-content">
-            <h2 id="titre-cta-final">Venez voir si Dojow est fait pour vous.</h2>
+            <h2 id="titre-cta-final">Visiter notre espace de coworking à Nancy</h2>
             <p>Visite gratuite, sans engagement. Une vingtaine de minutes sur place, au 23 rue Claudot à Nancy.</p>
           </div>
           <div class="bloc-cta-actions">
@@ -315,7 +376,7 @@
     <!-- Section 9 · FAQ courte -->
     <section id="faq" class="section" aria-labelledby="titre-faq">
       <div class="container">
-        <h2 id="titre-faq" class="section-header">Questions fréquentes</h2>
+        <h2 id="titre-faq" class="section-header">Questions fréquentes sur le coworking à Nancy</h2>
         <div class="faq-list">
           <details class="faq-item" open>
             <summary class="faq-summary"><span>C'est quoi, un poste fixe ?</span><span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span></summary>
@@ -334,6 +395,18 @@
             <div class="faq-content"><p>C'est exactement pour ça qu'on commence par une visite. Vous ne vous engagez à rien avant d'avoir vu votre poste, testé la connexion et rencontré les gens.</p></div>
           </details>
         </div>
+      </div>
+    </section>
+
+    <!-- Section « Où nous trouver » (préconisation SEO, textes repris de SPEC 8.2) -->
+    <!-- À COMPLÉTER : quartier du 23 rue Claudot, temps depuis la gare de Nancy, lignes de bus ou de tram, modalités de stationnement -->
+    <section id="acces" class="section" aria-labelledby="titre-acces">
+      <div class="container">
+        <h2 id="titre-acces" class="section-header">Où nous trouver : un espace de coworking au 23 rue Claudot, à Nancy</h2>
+        <p>Dojow est un espace de travail partagé installé au 23 rue Claudot, 54000 Nancy, à deux pas du parc de la Pépinière. Accès voiture et stationnement facile.</p>
+        <p>Vous cherchez un bureau partagé à proximité ? Dojow est à portée de voiture depuis toute la métropole du Grand Nancy : Vandœuvre-lès-Nancy, Villers-lès-Nancy, Laxou, Maxéville, Malzéville, Saint-Max, Essey-lès-Nancy, Tomblaine, Jarville-la-Malgrange, Heillecourt.</p>
+        <p>Freelances, travailleurs indépendants et petites équipes y prennent un poste en open space plutôt que de rester en télétravail à la maison : 15 postes fixes, la fibre, une salle de réunion incluse et un accès 24h/24 par badge.</p>
+        <p><a href="https://www.google.com/maps/search/?api=1&amp;query=23+rue+Claudot+54000+Nancy" class="link-secondary" target="_blank" rel="noopener">Itinéraire Google Maps</a></p>
       </div>
     </section>
 
