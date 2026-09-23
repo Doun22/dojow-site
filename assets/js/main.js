@@ -416,8 +416,8 @@
      ========================================================================== */
   const COOKIE_CONSENT_KEY = "dojow_cookie_consent";
   const SIX_MONTHS_MS = 180 * 24 * 60 * 60 * 1000;
-  // [À COMPLÉTER : ID Google Ads réel, ex. AW-123456789]
-  const GOOGLE_ADS_ID = "AW-XXXXXXXXX";
+  // ID Google Ads du compte Dojow (978-614-8003)
+  const GOOGLE_ADS_ID = "AW-18459903015";
 
   function loadGoogleAds() {
     if (window._googleAdsLoaded) return;
@@ -454,9 +454,9 @@
   function trackConversion() {
     const stored = Storage.getLocal(COOKIE_CONSENT_KEY);
     if (!stored || stored.choice !== "granted" || typeof window.gtag !== "function") return;
-    // [À COMPLÉTER : libellé de conversion, ex. AW-XXXXXXXXX/LIBELLE]
+    // Action de conversion "Demande de visite" (Google Ads)
     window.gtag("event", "conversion", {
-      send_to: `${GOOGLE_ADS_ID}/CONVERSION_LABEL`
+      send_to: `${GOOGLE_ADS_ID}/7usCCKrVw4IdEKeIr-JE`
     });
   }
 
