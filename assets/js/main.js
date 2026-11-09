@@ -333,7 +333,7 @@
         .then(function () {
           if (submitBtn) {
             submitBtn.disabled = false;
-            submitBtn.textContent = submitBtn.dataset.originalText || "Réserver ma visite";
+            submitBtn.textContent = submitBtn.dataset.originalText || "Obtenir plus d'informations";
           }
         });
       return false;
@@ -343,7 +343,7 @@
     window.addEventListener("pageshow", function () {
       if (submitBtn && submitBtn.disabled) {
         submitBtn.disabled = false;
-        submitBtn.textContent = submitBtn.dataset.originalText || "Réserver ma visite";
+        submitBtn.textContent = submitBtn.dataset.originalText || "Obtenir plus d'informations";
       }
     });
 
@@ -544,7 +544,7 @@
   }
 
   /* ==========================================================================
-     Boutons « Réserver ma visite » : descente jusqu'au formulaire s'il est
+     Boutons d'action : descente jusqu'au formulaire s'il est
      sur la page (sinon, lien normal vers /#visite, le formulaire de l'accueil)
      ========================================================================== */
   function initCtaToForm() {
