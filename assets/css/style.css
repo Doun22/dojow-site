@@ -1119,36 +1119,6 @@ a {
   }
 }
 
-/* Écrans courts (petits téléphones, barre du navigateur) : le bouton du hero
-   doit rester visible sans défiler, bandeau cookies compris. */
-@media (max-width: 767px) and (max-height: 720px) {
-  .hero-full-content {
-    padding-block: 24px;
-  }
-
-  .hero-full-sub {
-    margin: 16px 0 24px;
-  }
-
-  .hero-full-reassurance {
-    margin-top: 12px;
-  }
-}
-
-/* Très petits écrans : un cran de plus, titre compris. */
-@media (max-width: 767px) and (max-height: 660px) {
-  .hero-full-content {
-    padding-block: 16px;
-  }
-
-  .hero-full h1 {
-    font-size: 36px;
-  }
-
-  .hero-full-sub {
-    margin: 12px 0 20px;
-  }
-}
 
 .hero-full h1 {
   color: var(--blanc);
@@ -1178,6 +1148,45 @@ a {
   font-size: 14px;
   font-weight: 600;
   color: #E6E6E6;
+}
+
+/* Écrans courts (petits téléphones, barre du navigateur) : le bouton du hero
+   doit rester visible sans défiler, bandeau cookies compris. */
+@media (max-width: 767px) and (max-height: 720px) {
+  .hero-full-content {
+    padding-block: 24px;
+  }
+
+  .hero-full-sub {
+    font-size: 17px;
+    margin: 16px 0 24px;
+  }
+
+  .hero-full-reassurance {
+    margin-top: 12px;
+  }
+}
+
+/* Très petits écrans : un cran de plus, titre compris. */
+@media (max-width: 767px) and (max-height: 660px) {
+  .hero-full-content {
+    padding-block: 12px;
+  }
+
+  .hero-full h1 {
+    font-size: 32px;
+  }
+
+  .hero-full-sub {
+    font-size: 16px;
+    line-height: 1.4;
+    margin: 10px 0 16px;
+  }
+
+  .hero-full-reassurance {
+    margin-top: 10px;
+    font-size: 15px;
+  }
 }
 
 /* Section noire */

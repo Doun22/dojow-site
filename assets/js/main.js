@@ -246,12 +246,11 @@
         }
       }
 
-      // 2. Téléphone
+      // 2. Téléphone : facultatif, vérifié seulement s'il est rempli
       const errTel = document.getElementById("err-telephone");
       if (telInput) {
         if (!telInput.value.trim()) {
-          showError(telInput, errTel, "Ce champ est requis.");
-          isValid = false;
+          clearError(telInput, errTel);
         } else if (!validatePhone(telInput.value)) {
           showError(telInput, errTel, "Vérifiez votre numéro de téléphone.");
           isValid = false;
@@ -333,7 +332,7 @@
         .then(function () {
           if (submitBtn) {
             submitBtn.disabled = false;
-            submitBtn.textContent = submitBtn.dataset.originalText || "Obtenir plus d'informations";
+            submitBtn.textContent = submitBtn.dataset.originalText || "Réserver ma journée d'essai";
           }
         });
       return false;
@@ -343,7 +342,7 @@
     window.addEventListener("pageshow", function () {
       if (submitBtn && submitBtn.disabled) {
         submitBtn.disabled = false;
-        submitBtn.textContent = submitBtn.dataset.originalText || "Obtenir plus d'informations";
+        submitBtn.textContent = submitBtn.dataset.originalText || "Réserver ma journée d'essai";
       }
     });
 
@@ -564,6 +563,24 @@
   }
 
   /* ==========================================================================
+     Présélection du profil depuis un lien [data-profil] (bloc « Équipes »)
+     ========================================================================== */
+  function initProfilPreselection() {
+    const liens = document.querySelectorAll("[data-profil]");
+    liens.forEach(function (lien) {
+      lien.addEventListener("click", function () {
+        const valeur = lien.getAttribute("data-profil");
+        const radio = document.querySelector('input[name="profil"][value="' + valeur + '"]');
+        // Le lien garde son comportement normal : l'ancre #visite fait défiler la page
+        if (radio) {
+          radio.checked = true;
+          radio.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+      });
+    });
+  }
+
+  /* ==========================================================================
      Année courante dynamique dans le footer
      ========================================================================== */
   function initDynamicYear() {
@@ -586,6 +603,7 @@
     initCookieBanner();
     initCallTracking();
     initCtaToForm();
+    initProfilPreselection();
     initMerciDialog();
     initDynamicYear();
   });
